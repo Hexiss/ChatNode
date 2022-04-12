@@ -51,7 +51,7 @@ io.on('connection', () =>{
   console.log('a user is connected')
 })
 
-var databaseUrl = 'mongodb://localhost:27017/chat'
+var databaseUrl = 'mongodb+srv://yolo:yolo@cluster0.0jc8g.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 mongoose.connect(databaseUrl, {	
     useNewUrlParser: true,
 	useUnifiedTopology: true
