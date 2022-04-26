@@ -1,15 +1,15 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-var mongoose = require('mongoose');
+let express = require('express');
+let bodyParser = require('body-parser');
+let app = express();
+let http = require('http').Server(app);
+let io = require('socket.io')(http);
+let mongoose = require('mongoose');
 
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
 
-var Message = mongoose.model('Message',{
+let Message = mongoose.model('Message',{
   name : String,
   message : String
 })
@@ -51,7 +51,11 @@ io.on('connection', () =>{
   console.log('a user is connected')
 })
 
-var databaseUrl = 'mongodb+srv://yolo:yolo@cluster0.0jc8g.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+//Use cloud
+//let databaseUrl = 'mongodb+srv://yolo:yolo@cluster0.0jc8g.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+
+//Use local storage
+let databaseUrl = 'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false'
 mongoose.connect(databaseUrl, {	
     useNewUrlParser: true,
 	useUnifiedTopology: true
@@ -62,6 +66,6 @@ mongoose.connect(databaseUrl, {
     process.exit();
 });
 
-var server = http.listen(3000, () => {
+let server = http.listen(3000, () => {
  console.log('server is running on port', server.address().port);
 });
