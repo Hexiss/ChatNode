@@ -1,5 +1,6 @@
-Juste faire 
+Projet Node.js 
+Alexis herold B3 - 2022
 
-node .\server.js
-
-pour lancer le serveur
+Lancer le projet:
+Npm install
+node serve.js
